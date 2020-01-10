@@ -501,6 +501,7 @@ MonoBehaviour:
   speed: 12
   gravity: -30
   jumpHeight: 3
+  x_vel: 0
   groundCheck: {fileID: 580916771}
   groundDistance: -0.4
   groundMask:
