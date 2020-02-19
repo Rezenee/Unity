@@ -60,8 +60,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\scripts\Movement.cs" />
-    <Compile Include="Assets\scripts\PlayerCameraController.cs" />
+    <Compile Include="Assets\scripts\destroyInOneHit.cs" />
+    <Compile Include="Assets\scripts\Enemy\EnemyHealth.cs" />
+    <Compile Include="Assets\scripts\Enemy\EnemyStats.cs" />
+    <Compile Include="Assets\scripts\Gun.cs" />
+    <Compile Include="Assets\scripts\Interfaces\IDamageable.cs" />
+    <Compile Include="Assets\scripts\Player\Movement.cs" />
+    <Compile Include="Assets\scripts\Player\PlayerCameraController.cs" />
+    <Compile Include="Assets\WeaponHandler.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/02zane.rickert/Desktop/Zane Rickert/Repos/Unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
