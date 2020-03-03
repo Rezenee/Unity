@@ -52,6 +52,9 @@
     <UnityVersion>2018.4.14f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.14f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -65,23 +68,34 @@
     <Compile Include="Assets\scripts\Enemy\EnemyStats.cs" />
     <Compile Include="Assets\scripts\Gun.cs" />
     <Compile Include="Assets\scripts\Interfaces\IDamageable.cs" />
+    <Compile Include="Assets\scripts\Player\InputButtons.cs" />
+    <Compile Include="Assets\scripts\Player\IntExtensions.cs" />
+    <Compile Include="Assets\scripts\Player\ISurfControllable.cs" />
+    <Compile Include="Assets\scripts\Player\MoveData.cs" />
     <Compile Include="Assets\scripts\Player\Movement.cs" />
+    <Compile Include="Assets\scripts\Player\MovementConfig.cs" />
     <Compile Include="Assets\scripts\Player\PlayerCameraController.cs" />
+    <Compile Include="Assets\scripts\Player\SurfCharacter.cs" />
+    <Compile Include="Assets\scripts\Player\SurfController.cs" />
+    <Compile Include="Assets\scripts\Player\SurfPhysics.cs" />
+    <Compile Include="Assets\scripts\Player\Trace.cs" />
+    <Compile Include="Assets\scripts\Player\Tracer.cs" />
+    <Compile Include="Assets\scripts\Player\VectorExtensions.cs" />
     <Compile Include="Assets\WeaponHandler.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/02zane.rickert/Desktop/Zane Rickert/Repos/Unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/zaner/Desktop/Unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/02zane.rickert/Desktop/Zane Rickert/Repos/Unity/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/zaner/Desktop/Unity/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/02zane.rickert/Desktop/Zane Rickert/Repos/Unity/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/zaner/Desktop/Unity/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/02zane.rickert/Desktop/Zane Rickert/Repos/Unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/zaner/Desktop/Unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/02zane.rickert/Desktop/Zane Rickert/Repos/Unity/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/zaner/Desktop/Unity/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -285,13 +299,13 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.14f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/02zane.rickert/Desktop/Zane Rickert/Repos/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/zaner/Desktop/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/02zane.rickert/Desktop/Zane Rickert/Repos/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/zaner/Desktop/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/02zane.rickert/Desktop/Zane Rickert/Repos/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/zaner/Desktop/Unity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.14f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
