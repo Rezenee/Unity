@@ -11,7 +11,7 @@ public class WeaponHandler : MonoBehaviour
     {
         cameraTransform = Camera.main.transform;
     }
-    private void Update()
+    private void gpdate()
     {
         CheckForShooting();
     }

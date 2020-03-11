@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     bool onGround;
     public float jump_force = 5f;
     private Vector3 lastFrameVelocity = Vector3.zero;
-
+    Vector3 originalPos;
     public Camera camObj;
 
     Rigidbody rb;
@@ -22,7 +22,8 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        originalPos = gameObject.transform.position;
+        rb = GetComponent<Rigidbody>(); 
         coll = GetComponent<Collider>();
     }
 
@@ -71,7 +72,6 @@ public class Movement : MonoBehaviour
         // +100 is straight forwards, -100 is straight backwards. 
         Vector3 inputVelocity = Quaternion.Euler(camRotation) *
             new Vector3(input.x * ground_accelerate, 0f, input.y * ground_accelerate);
-        
         //Ignore vertical component of rotated input
         Vector3 alignedInputVelocity = new Vector3(inputVelocity.x, 0f, inputVelocity.z) * Time.deltaTime;
         //alignedInputVelocity is inputvelocity, but scaled so it doesn't change depending on your framerate.
@@ -80,44 +80,24 @@ public class Movement : MonoBehaviour
         Vector3 currentVelocity = new Vector3(velocity.x, 0f, velocity.z);
         //currentVelocity is (0.0, 0.0, 0.0) that scales depending on how fast you are moving.
 
-        //Apply jump
         alignedInputVelocity += GetJumpVelocity(velocity.y);
-        print(velocity);
         return alignedInputVelocity;
     }
 
         public Vector3 CalculateMovementAir(Vector2 input, Vector3 velocity)
     {
         onGround = Grounded();
-        //Different acceleration values for ground and air
-        float curAccel = ground_accelerate;
-        if (!onGround)
-            curAccel = air_accelerate;
-
-        //Ground speed
-        float curMaxSpeed = max_velocity_ground; 
-
-        //Air speed
-        if (!onGround)
-            curMaxSpeed = max_velocity_air;
-
-        //Get rotation input and make it a vector
-        // Format of camRotation is (0.0, 0-360, 0.0) changes depending on where you are looking.
         Vector3 camRotation = new Vector3(0f, camObj.transform.rotation.eulerAngles.y, 0f);
-        // Input velocity is (-100-100, 0, -100-100) It changes depending on where you are looking
-        // +100 is straight forwards, -100 is straight backwards. 
+
         Vector3 inputVelocity = Quaternion.Euler(camRotation) *
             new Vector3(input.x * air_accelerate, 0f, input.y * air_accelerate);
-        
-        //Ignore vertical component of rotated input
+        print(Quaternion.Euler(camRotation));
+
         Vector3 alignedInputVelocity = new Vector3(inputVelocity.x, 0f, inputVelocity.z) * Time.deltaTime;
-        //alignedInputVelocity is inputvelocity, but scaled so it doesn't change depending on your framerate.
-        //Get current velocity
-        
+  
+
         Vector3 currentVelocity = new Vector3(velocity.x, 0f, velocity.z);
-        //currentVelocity is (0.0, 0.0, 0.0) that scales depending on how fast you are moving.
-        //How close the current speed to max velocity is (1 = not moving, 0 = at/over max speed)
-        float max = Mathf.Max(0f, 1 - (currentVelocity.magnitude / curMaxSpeed));
+        float max = Mathf.Max(0f, 1 - (currentVelocity.magnitude / max_velocity_air));
         //How perpendicular the input to the current velocity is (0 = 90°)
         float velocityDot = Vector3.Dot(currentVelocity, alignedInputVelocity);
         //Scale the input to the max speed
